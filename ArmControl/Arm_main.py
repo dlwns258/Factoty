@@ -49,47 +49,7 @@ def moter_stop():
     sleep(0.1)
     pwm.ChangeDutyCycle(0)
     sleep(0.1)
-"""
-def preprocessing(frame):
-    size = (224, 224)
-    frame_resized = cv2.resize(frame, size, interpolation=cv2.INTER_AREA)
-    
-    frame_normalized = (frame_resized.astype(np.float32) / 127.0) - 1
-    
-    frame_reshaped = frame_normalized.reshape((1, 224, 224, 3))
-    
-    return frame_reshaped
 
-def test(count,c):
-    capture = cv2.VideoCapture(0)
-
-    capture.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
-    capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
-    while(capture.isOpened()):
-        ret, frame = capture.read()
-        frame_fliped = cv2.flip(frame, 1)
-        
-        if count>8:
-            capture.release()
-            cv2.destroyAllWindows()
-            return c
-            break
-        preprocessed = preprocessing(frame_fliped)
-
-        prediction = model.predict(preprocessed)
-
-        print(prediction)
-    
-        if prediction[0,0] > prediction[0,1]:
-            print("1")
-            c=1
-            count+=1
-        else:
-            print("2")
-            c=2
-            count+=1
-        print(count)
-"""
 def Cam_Point(c):
     
     if c == 1:
